@@ -68,6 +68,10 @@ export async function processLibrary(
             console.log(`   ❌ Skipping RN ${rnVersion} - does not match reactNativeVersion criteria`);
             continue;
           }
+          if (!["0.83.0", "0.83.1", "0.83.2"].includes(rnVersion)) {
+            //console.log(`   ❌ Skipping version ${rnVersion} - not in the list of RNversions to schedule`);
+            continue;
+          }
 
           for (const workletsVersionInfo of workletsMatchingVersions.length > 0
             ? workletsMatchingVersions
